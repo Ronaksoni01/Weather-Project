@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>openweathermap.org/api</title>
+    <style>
+        /* .main {
+            background-image: url("/static/image/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png");
+            height: 650px; 
+            width: 100%;
+            
+        } */
+
+        .image {
+            padding-top: 542px;
+            background-image: url(/static/image/alexander-andrews-Kc8iI8RLPpc-unsplash.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .input-group input {
+            width: 25%;
+            height: 30px;
+            border: none;
+            background-color: rgb(228, 220, 220);
+            border-radius: 20px;
+        }
+
+        .input-group-btn button {
+            width: 12%;
+            height: 35px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            color: black;
+            border: none;
+        }
+
+        .input-group-btn button:hover {
+            background-color: rgb(208, 226, 66);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-left: 30px;
+            
+        }
+        nav a{
+            text-decoration: none;
+            color: white;
+        }
+        .nav input {
+            width: 15%;
+            border: none;
+            background-color: rgb(71, 67, 67);
+        }
+
+        .nav {
+            background-color: rgb(71, 67, 67);
+            color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .container .home a{
+            text-decoration: none;
+            font-size: 20px;
+
+        }
+        .raw{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .raw h3{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav">
+        <br>
+        <nav>
+            <ul>
+                <li style="margin-right: 40px;"><a href="">OpenWeather</a> </li>
+                <input type="text" placeholder="Weather in your city">
+                <li><a href="">Guide</a></li>
+                <li><a href="">API</a> </li>
+                <li><a href="">Dashboard</a> </li>
+                <li><a href="">Markteplace</a> </li>
+                <li><a href="">Pricing</a> </li>
+                <li><a href="">Maps</a> </li>
+                <li><a href="">Our Initiatives</a> </li>
+                <li><a href="">Partners</a> </li>
+                <li><a href="">Blog</a> </li>
+                <li><button
+                        style="border-radius: 20px; width: 130%; height: 30px; background-color: silver; border: none;">For
+                        Business</button></li>
+                <li><a href="">Ronak</a> </li>
+                <li><a href="">Support</a> </li>
+            </ul>
+        </nav>
+        <br>
+    </div>
+
+    <div class="container">
+        <div class="" style="font-size: 35px;">
+            Weather API
+        </div>
+        <div class="home">
+            <a href="" style="color: orange;">Home</a> /
+            <a href="">Weather API</a>
+        </div>
+    </div>
+<hr>
+
+    <!-- <marquee>my name is ronak soni</marquee> -->
+    <div class="main">
+        <div class="image">
+            <center class="row">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input  style="text-align: center; color: black;" type="text" class="form-control" placeholder="Search Weather" name="city"><br>
+                        <br>
+                        <div class="input-group-btn">
+                            <button type="submit">check In Weather</button>
+                        </div>
+                    </div>
+                    
+    <div class="raw">
+        {% if country_code and coordinate and temp and pressure and humidity %}
+        <div class="col-md-6 col-md-offset-3">
+            <h3>Country Code: {{ country_code }}</h3>
+            <h3>Coordinate: {{ corrdinate }}</h3>
+            <h3>Temperature: {{ temp }}</h3>
+            <h3>Pressure: {{ pressure }}</h3>
+            <h3>Humidity: {{ humidity }}</h3>
+           
+            
+        </div>
+        {% endif %}
+    </div>
+                </form>
+            </center>
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+
+
+</body>
+
+</html>
